@@ -34,3 +34,4 @@ class FoodSearchData(models.Model):
 
     def __str__(self):
         return self.unique_search_id
+        
