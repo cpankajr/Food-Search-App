@@ -141,25 +141,3 @@ def get_price_bifurcation(food_detail_dict):
         total_price += str(food_detail_dict["grand_total"])
         total_price += '</span></p>'
     return total_price
-
-
-This is line
-This is line
-This is line
-This is line
-This is line
-This is line
-This is line
-This is line
-This is line
-This is line
-This is line
-This is line
-This is line
-This is line
-This is line
-This is line
-This is line
-This is line
-This is line
-This is line
