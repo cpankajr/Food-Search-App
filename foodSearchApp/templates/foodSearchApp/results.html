@@ -1,0 +1,161 @@
+{% extends 'foodSearchApp/base.html' %}
+{% block content %}
+{% load static %}
+{% load custom_tags %}
+<div class="mobile-location-info">
+    <div id="address-short"> Dahisar (west)  <i class="material-icons">expand_more</i>
+</div>
+    <div>tawdw wadi pankajhdvjhbd kj , jgdvjdb mn </div>
+</div>
+<div class="results-search-bar-div" style="margin: 10px 0;">
+    <div class="results-search-bar-wrapper" style="width: 75%; padding: 5px !important;">
+	    <input id="food-search-input" class="browser-default" type="text" name="" value="{{user_query}}">
+    </div>
+    <div class="search-btn" style="width: 20%; font-size: 15px; height: 40px;">
+     Change
+    </div>
+</div>
+<div class="search-results" style="overflow: auto;">
+    {% for detail_obj in food_detail_data %}
+    <div class="result-container">
+       <div class="mobile-logo">
+            <img src="{{detail_obj.vendor| get_img_src}}">
+       </div>
+        <div class="item-info-div">
+           <div class="logo">
+                <img src="{{detail_obj.vendor| get_img_src}}">
+           </div>
+           <div class="item-img-wrapper">
+                <img src="{{detail_obj.item_img_url}}" onerror="this.onerror=null; this.src='/files/images/image-not-found.jpg'" alt="">
+           </div>
+            <div class="item-detail-wrapper">
+                <div class="item-name">
+                    <h1>{{detail_obj.menu_item_name | truncatesmart:25}}</h1>
+                </div>
+                <div class="restaurant-details">
+                    <div class="restaurant-info-wrapper">
+                        <h5 class="res-name">{{ detail_obj.restaurant_name | truncatesmart:25}} </h5>
+                        <p class="res-address">{{ detail_obj.restaurant_address }}</p>
+                    </div>
+                    <div class="item-rating-wrapper">
+                        <span class="rating-string">{{detail_obj.restaurant_rating | get_rating}}</span>
+                        <div class="star-ratings">
+                            <div class="fill-ratings" style="width: {{detail_obj.restaurant_rating | get_rating_percentage}}%;">
+                                <span>★★★★★</span>
+                            </div>
+                            <div class="empty-ratings">
+                                <span>★★★★★</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="final-price-div">
+            <div class="final-price-del-wrapper">
+                <div class="final-price-info">
+                    <span>
+                        {{detail_obj | get_total_price}}
+                    </span>
+                    <i class="material-icons" style="color: #888888" onclick="show_price_bif_modal({{ forloop.counter }})">info</i>
+                </div>
+                <div class="res-delivery-time">
+                    <img src="/files/images/del-scooter.png">
+                    <span class="del-time-string">
+                        {{detail_obj.del_time| get_numric_value}}
+                    </span>
+                    <span>
+                        mins
+                    </span>
+                </div>
+            </div>
+	    <div class="select-item-btn" onclick="window.open('{{detail_obj.res_url}}', '_blank');">
+                <a href="javascript:void(0)">
+                    Select
+                    <i class="material-icons">arrow_forward</i>
+                </a>
+            </div>
+        </div>
+        <div class="select-item-btn-wrapper"onclick="window.open('{{detail_obj.res_url}}', '_blank');">
+            <a href="javascript:void(0)">
+                Select
+                <i class="material-icons">arrow_forward</i>
+            </a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+<div class="search-results-loader">
+    <div></div>
+</div>
+{% for detail_obj in food_detail_data %}
+<div class="price-bifurcation-modal" id="price-bifurcation-modal-{{ forloop.counter }}">
+    <div class="price-bifurcation-content">
+        <div class="modal-title">
+            Price Breakdown
+        </div>
+        <div class="close-modal" onclick="close_price_bif_modal({{ forloop.counter }})">
+            X
+        </div>
+        <div class="price-bif-div">
+            {{detail_obj | get_price_bifurcation | safe}}
+        </div>
+    </div>
+</div>
+{% endfor %}
+<div class="ask-location-modal">
+        <div class="ask-location-modal-content">
+          <div class="preview-map">
+                <!-- <img id="preview-map-img" src="https://maps.googleapis.com/maps/api/staticmap?key=AIzaSyBl1Wwgdhv4XFl1nHNvCH-2QyD7ltJaueM&center=52.5219216,13.4110207&zoom=12&size=480x125&maptype=roadmap&sensor=false" alt="Google Maps Berlin"> -->
+          </div>
+          <div class="location-modal-auto-detect-wrapper">
+            <a href="javascript:void(0)" id="auto-detect-location" onclick="getLocation()">
+              <i class="material-icons">my_location</i>
+              Locate Me
+            </a>
+          </div>
+          <p id="location-option-text">
+            or
+          </p>
+          <div class="address-bar">
+                <input onfocus="hide_other_modal_content()" onblur="show_other_modal_content()" onkeyup= "toggel_location_btns(this)" class="browser-default" placeholder="Enter a location" id="address-input" autocomplete="off">
+          </div>
+          <div class="location-modal-action-wrapper">
+                <a href="javascript:void(0)" id="ask-location-modal-clear">
+                        Clear
+                </a>
+          </div>
+
+        </div>
+</div>
+<div class="search-loader">
+  <img src="/files/images/loader-2.gif" style="width:100px;height:100px" alt="[effects output image]">
+  <p class="item-1 anim-item">Fetching data from Zomato...</p>
+
+  <p class="item-2 anim-item">Fetching data from Swiggy...</p>
+
+  <p class="item-3 anim-item">Fetching data from Uber Eats...</p>
+
+  <p class="item-4 anim-item">Sorting it according to your search...</p>
+</div>
+<div class="location-loader">
+  <div class="pin-wrapper burger">
+    <div class="pin"></div>
+  </div>
+
+  <div class="pin-wrapper icecream" style="display: none;">
+    <div class="pin"></div>
+  </div>
+
+  <div class="pin-wrapper sushi" style="display: none;">
+    <div class="pin"></div>
+  </div>
+
+  <div class="pin-wrapper pizza" style="display: none;">
+    <div class="pin"></div>
+  </div>
+</div>
+<script type="text/javascript">
+    var search_page_no = parseInt("{{page_no}}");
+</script>
+{% endblock %}

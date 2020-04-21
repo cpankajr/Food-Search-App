@@ -1,0 +1,110 @@
+{% extends 'foodSearchApp/base.html' %}
+{% block content %}
+{% load static %}
+<div class="food-search-banner-div">
+   <div class="banner-text">
+      What to eat next?
+   </div>
+   <div style="text-align: center;">
+      <div class="banner-search-bar-div">
+         <div class="gps-input-bar">
+            <i id="gps-input-bar-icon" class="material-icons">gps_fixed</i>
+         </div>
+         <input id="food-search-input" class="browser-default" type="text" name="" placeholder="Search for food...">
+      </div>
+      <div class="search-btn">
+         <i class="material-icons" style="font-weight: bolder;">search</i>
+      </div>
+   </div>
+</div>
+<div class="row steps-headline-div" >
+   <div class="steps-sub-headline">How it works</div>
+   <div class="steps-main-headline">Easy as that!</div>
+</div>
+<div class="row content-steps">
+   <div class="col l3 m12 s12 steps-wrapper">
+      <div class="row steps-headline"	>
+         1. Enter your location
+      </div>
+      <a href="javascript:void(0)">
+      <img src="/files/images/location-map.svg" class="steps-icon" alt="location map">
+      </a>
+   </div>
+   <div class="col l3 m12 s12 steps-wrapper" >
+      <div class="row steps-headline">
+         2. Choose your food & website
+      </div>
+      <a href="javascript:void(0)">
+      <img src="/files/images/search-results.svg" class="steps-icon" alt="search results">
+      </a>
+   </div>
+   <div class="col l3 m12 s12 steps-wrapper" >
+      <div class="row steps-headline">
+         3. Check your cart and Pay
+      </div>
+      <a href="javascript:void(0)">
+      <img src="/files/images/finale-bucket.svg" class="steps-icon" alt="finale bucket">
+      </a>
+   </div>
+   <div class="col l3 m12 s12 steps-wrapper" >
+      <div class="row steps-headline">
+         4. Get your food delivered
+      </div>
+      <a href="javascript:void(0)">
+      <img src="/files/images/out-for-delivery.svg" class="steps-icon" alt="out for delivery">
+      </a>
+   </div>
+</div>
+<div class="ask-location-modal">
+	<div class="ask-location-modal-content">
+          <div class="preview-map">
+          	<!-- <img id="preview-map-img" src="https://maps.googleapis.com/maps/api/staticmap?key=AIzaSyBl1Wwgdhv4XFl1nHNvCH-2QyD7ltJaueM&center=52.5219216,13.4110207&zoom=12&size=480x125&maptype=roadmap&sensor=false" alt="Google Maps Berlin"> -->
+          </div>
+          <div class="location-modal-auto-detect-wrapper">
+            <a href="javascript:void(0)" id="auto-detect-location" onclick="getLocation()">
+              <i class="material-icons">my_location</i>
+              Locate Me
+            </a>
+          </div>
+          <p id="location-option-text">
+            or
+          </p>
+          <div class="address-bar">
+          	<input onfocus="hide_other_modal_content()" onblur="show_other_modal_content()" onkeyup= "toggel_location_btns(this)" class="browser-default" placeholder="Enter a location" id="address-input" autocomplete="off">      	
+          </div>
+          <div class="location-modal-action-wrapper">
+          	<a href="javascript:void(0)" id="ask-location-modal-clear">
+          		Clear
+          	</a>
+          </div>
+		
+	</div>
+</div>
+<div class="search-loader">
+  <img src="/files/images/loader-2.gif" style="width:100px;height:100px" alt="[effects output image]">
+  <p class="item-1 anim-item">Fetching data from Zomato...</p>
+
+  <p class="item-2 anim-item">Fetching data from Swiggy...</p>
+
+  <p class="item-3 anim-item">Fetching data from Uber Eats...</p>
+
+  <p class="item-4 anim-item">Sorting it according to your search...</p>
+</div>
+<div class="location-loader">
+  <div class="pin-wrapper burger">
+    <div class="pin"></div>
+  </div>
+
+  <div class="pin-wrapper icecream" style="display: none;">
+    <div class="pin"></div>
+  </div>
+
+  <div class="pin-wrapper sushi" style="display: none;">
+    <div class="pin"></div>
+  </div>
+
+  <div class="pin-wrapper pizza" style="display: none;">
+    <div class="pin"></div>
+  </div>
+</div>
+{% endblock %}

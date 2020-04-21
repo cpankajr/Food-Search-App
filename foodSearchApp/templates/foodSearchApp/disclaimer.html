@@ -1,0 +1,26 @@
+{% extends 'foodSearchApp/base.html' %}
+{% block content %}
+{% load static %}
+{% load custom_tags %}
+<style>
+  li::before{
+    content: "\2022";
+    display: inline-block;
+    width: 1.2em;
+    margin-left: 1.5em;
+    color: #888888;
+    font-weight: 700;
+  }
+</style>
+<div style="width: 95%;
+    margin: auto;
+    color: white;">
+        <p style="font-size: 18px;font-weight: 900;color:#dc6b37">Copyright</p>
+
+	<p>The material/logos featured on this site are property of concerned third parties and is subject to copyright to those parties.</p>
+
+	<p style="font-size: 18px;font-weight: 900;color:#dc6b37">Disclaimer</p>
+	<p>The contents of these pages are provided as an information guide only.<p>
+	<p>You can contact admin regarding any issue related to website by filling this form <a href="https://forms.gle/TxBygYgLFoPh9dvD7" >https://forms.gle/TxBygYgLFoPh9dvD7</a></p>
+</div>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'foodSearchApp/base.html' %}
+{% block content %}
+{% load static %}
+{% load custom_tags %}
+<style>
+  li::before{
+    content: "\2022";
+    display: inline-block;
+    width: 1.2em;
+    margin-left: 1.5em;
+    color: #888888;
+    font-weight: 700;
+  }
+</style>
+<div style="width: 95%;
+    margin: auto;
+    color: white;">
+	<p style="font-size: 18px;font-weight: 900;color:#dc6b37">Terms of Use</p>
+	<ul>
+                <li>FoodSearchApp is not a food delivery app and is not responsible for providing, or for setting or controlling the prices applicable to, any of the food options which you may search for, find on and/or order via the FoodSearchApp. All such food products/deliveries are provided by third parties and are subject to the terms and conditions imposed by those third parties.</li>
+		<li>You can contact admin regarding any issue related to website by filling this form <a href="https://forms.gle/TxBygYgLFoPh9dvD7" >https://forms.gle/TxBygYgLFoPh9dvD7</a></li>
+        </ul>
+	<p style="font-size: 18px;font-weight: 900;color:#dc6b37">Cookies policy:</p>
+
+	<p>To give you a personalised service, we use cookies and similar technologies.</p>
+
+	<p>We use cookies for things like…</p>
+	<ul>
+		<li>Making our site easier to use</li>
+	</ul>
+	<p>We never use cookies for…</p>
+	<ul>
+		<li>Changing the prices you see</li>
+	</ul>
+</div>
+{% endblock %}
