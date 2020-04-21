@@ -15,7 +15,7 @@ But for that One usually spend atleast 10-20 mins checking prices on multiple ap
   * then go to your cart to see "Final price(including delivery charges and taxes)"
 These steps are for checking one of the results on one app. Just imagine doing for multiple results and same thing doing on other apps as well. Its very time consuming.
 
-**In our app , you just have to enter your dish name, provide location and tadddaaa!!!! results with final price(including delivery and tax charges)**
+**In our app , you just have to enter your dish name, provide location and tadddaaa!!!! results with final price(including delivery and tax charges) from multiple food apps**
 
 Below are the Screenshots of the same:
 
