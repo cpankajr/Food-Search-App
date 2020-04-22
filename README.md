@@ -18,4 +18,7 @@ These steps are for checking one of the results on one app. Just imagine doing f
 **In our app , you just have to enter your dish name, provide location and tadddaaa!!!! results with final price(including delivery and tax charges) from multiple food apps**
 
 Below are the Screenshots of the same:
+![1](https://github.com/cpankajr/Food-Search-App/blob/master/files/images/IMG-20200109-WA0002.jpg)
+![2](https://github.com/cpankajr/Food-Search-App/blob/master/files/images/IMG-20200109-WA0003.jpg)
+![3](https://github.com/cpankajr/Food-Search-App/blob/master/files/images/IMG-20200109-WA0007.jpg)
 
