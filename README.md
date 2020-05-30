@@ -2,7 +2,7 @@
 Its trivago-like webapp for food searches. currently supports only Swiggy, Zomato and Uber Eats.
 
 # Why we need this?
-- Most of bechlors/students want to order the food from the website which offer a better deal.
+- Most of bachelors/students want to order the food from the website which offer a better deal.
 But for that One usually spend atleast 10-20 mins checking prices on multiple apps.
 
 **So Our app saves your time and shows all results in one place.**
